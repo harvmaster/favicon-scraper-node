@@ -3,6 +3,11 @@
 A fully-typed library for quickly getting a favicon from any domain. Supports getting the favicon's meta data like image dimensions and mime types
 **Not browser compatible**
 
+# links
+- [Source](https://github.com/harvmaster/favicon-scraper-node)
+- [NPM](https://www.npmjs.com/package/favicon-scraper-node)
+- [Demo](https://www.faviconscraper.mc.hzuccon.com/#/)
+
 # Installation
 ```
 npm install --save favicon-scraper-node

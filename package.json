@@ -32,6 +32,11 @@
     "cheerio": "^1.0.0-rc.12",
     "probe-image-size": "^7.2.3"
   },
+  "homepage": "https://github.com/harvmaster/favicon-scraper-node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harvmaster/favicon-scraper-node"
+  },
   "files": [
     "dist/*"
   ],
