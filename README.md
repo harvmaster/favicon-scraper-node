@@ -1,6 +1,6 @@
 # favicon-scraper-node
 
-A fully-typed lib for quickly getting a favicon from any domain. Supports getting the favicon's meta data like image dimensions and mime types
+A fully-typed library for quickly getting a favicon from any domain. Supports getting the favicon's meta data like image dimensions and mime types
 **Not browser compatible**
 
 # Installation
