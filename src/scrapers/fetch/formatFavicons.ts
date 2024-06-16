@@ -1,14 +1,15 @@
-export const formatFavicon = (favicon: string, url: string): string => {
-  if (favicon.startsWith('http')) {
-    return favicon;
-  }
-  if (favicon.startsWith('//')) {
-    return `https:${favicon}`;
-  }
-  if (favicon.startsWith('/')) {
-    return `${url}${favicon}`;
-  }
-  return `${url}/${favicon}`;
+import type { Favicon, UserAgent } from '../../types';
+import { formatURL } from '../../utils'
+
+export const formatFavicons = (icons: string[], location: string, agent: UserAgent[keyof UserAgent]): Favicon[] => {
+  const result = icons.map(icon => {
+    return {
+      src: formatURL(icon, location),
+      agent: agent
+    }
+  })
+
+  return result;
 }
 
-export default formatFavicon;
+export default formatFavicons

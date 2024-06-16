@@ -1,7 +1,7 @@
-import type { Agent } from '../types';
+import type { Agent, UserAgent } from '../types';
 import { agents } from '../agents';
 
-export const getAgent = <T extends Agent>(userAgent: T): typeof agents[T] => {
+export const getAgent = <T extends Agent>(userAgent: T): UserAgent[T] => {
   return agents[userAgent];
 }
 

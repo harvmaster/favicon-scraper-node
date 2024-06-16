@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'bun:test'
-import formatFavicons from '../formatFavicons'
+import formatFavicons from '../formatURL'
 
 const known_icons = {
   ai_chat: {
