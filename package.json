@@ -15,7 +15,7 @@
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "bun ./bun.build.ts && bun run build:declaration",
+    "build": "bun esbuild.build.ts && bun run build:declaration",
     "build:declaration": "tsc --project ./tsconfig.types.json",
     "postbuild": "rimraf tsconfig.types.tsbuildinfo",
     "start": "node index.js"
