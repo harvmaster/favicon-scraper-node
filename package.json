@@ -1,6 +1,6 @@
 {
   "name": "favicon-scraper-node",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A simple favicon scraper for Node.js & Bun",
   "author": "Harvmaster <hzuccon@gmail.com>",
   "license": "ISC",
