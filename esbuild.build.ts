@@ -6,10 +6,25 @@ esbuild.build({
   bundle: true,
   platform: 'node',
   target: 'node14',
+  format: 'esm',
   outfile: './dist/index.js',
   external: getExternalsFromPackageJson(),
   sourcemap: true,
   minify: false,
+  allowOverwrite: true
+}).catch(() => process.exit(1));
+
+esbuild.build({
+  entryPoints: ['./src/index.ts'],
+  bundle: true,
+  platform: 'node',
+  target: 'node14',
+  format: 'cjs',
+  outfile: './dist/index.mjs',
+  external: getExternalsFromPackageJson(),
+  sourcemap: true,
+  minify: false,
+  allowOverwrite: true
 }).catch(() => process.exit(1));
 
 function getExternalsFromPackageJson(): string[] {

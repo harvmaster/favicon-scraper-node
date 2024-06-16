@@ -1,3 +1,39 @@
+"use strict";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/index.ts
+var src_exports = {};
+__export(src_exports, {
+  getFavicons: () => getFavicons
+});
+module.exports = __toCommonJS(src_exports);
+
 // src/scrapers/fetch/getDOM.ts
 var getHTML = async (url, agent) => {
   const res = await fetch(`https://${url}`, {
@@ -23,9 +59,9 @@ var FAVICON_TAGS = [
 ];
 
 // src/scrapers/fetch/extractFromDOM.ts
-import { load } from "cheerio";
+var import_cheerio = require("cheerio");
 var extractFromDOM = (dom) => {
-  const $ = load(dom);
+  const $ = (0, import_cheerio.load)(dom);
   let icons = [];
   $(FAVICON_TAGS.join(", ")).map((i, element) => {
     const href = $(element).attr("href");
@@ -92,9 +128,9 @@ var extractDomain = (url) => {
 var extractDomain_default = extractDomain;
 
 // src/utils/probeIcon.ts
-import probe from "probe-image-size";
+var import_probe_image_size = __toESM(require("probe-image-size"), 1);
 var probeIcon = async (favicon) => {
-  const result = await probe(favicon.src);
+  const result = await (0, import_probe_image_size.default)(favicon.src);
   return {
     src: favicon.src,
     size: {
@@ -123,7 +159,8 @@ async function getFavicons(domain, options) {
   const probedFavicons = await Promise.all(favicons.map((favicon) => probeIcon_default(favicon)));
   return probedFavicons;
 }
-export {
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
   getFavicons
-};
-//# sourceMappingURL=index.js.map
+});
+//# sourceMappingURL=index.mjs.map
