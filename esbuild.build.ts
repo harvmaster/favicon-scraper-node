@@ -20,7 +20,7 @@ esbuild.build({
   platform: 'node',
   target: 'node14',
   format: 'cjs',
-  outfile: './dist/index.mjs',
+  outfile: './dist/index.cjs',
   external: getExternalsFromPackageJson(),
   sourcemap: true,
   minify: false,
