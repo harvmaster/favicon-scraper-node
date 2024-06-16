@@ -163,4 +163,3 @@ async function getFavicons(domain, options) {
 0 && (module.exports = {
   getFavicons
 });
-//# sourceMappingURL=index.cjs.map

@@ -9,7 +9,7 @@ esbuild.build({
   format: 'esm',
   outfile: './dist/index.js',
   external: getExternalsFromPackageJson(),
-  sourcemap: true,
+  sourcemap: false,
   minify: false,
   allowOverwrite: true
 }).catch(() => process.exit(1));
@@ -22,7 +22,7 @@ esbuild.build({
   format: 'cjs',
   outfile: './dist/index.cjs',
   external: getExternalsFromPackageJson(),
-  sourcemap: true,
+  sourcemap: false,
   minify: false,
   allowOverwrite: true
 }).catch(() => process.exit(1));

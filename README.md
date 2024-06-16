@@ -8,6 +8,8 @@ A fully-typed library for quickly getting a favicon from any domain. Supports ge
 - [NPM](https://www.npmjs.com/package/favicon-scraper-node)
 - [Demo](https://www.faviconscraper.mc.hzuccon.com/#/)
 
+If you're looking to get scraped favicons in the browser, check out the wrapper to an API I host [wrapper](https://www.npmjs.com/package/favicons-scraper)
+
 # Installation
 ```
 npm install --save favicon-scraper-node

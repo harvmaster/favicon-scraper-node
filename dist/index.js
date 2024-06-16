@@ -126,4 +126,3 @@ async function getFavicons(domain, options) {
 export {
   getFavicons
 };
-//# sourceMappingURL=index.js.map
