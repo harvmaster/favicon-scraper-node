@@ -1,3 +1,5 @@
+import { agents } from './agents';
+
 export type Favicon = {
   src: string;
   agent: string;
@@ -13,14 +15,14 @@ export type ProbedFavicon = Favicon & {
 }
 
 export type FaviconOptions = {
-  agent: string
+  agent: Agent
   manifest: boolean
   scraper: FaviconScraper
   probe: boolean
 }
 
 export const DefaultFaviconOptions: FaviconOptions = {
-  agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+  agent: 'mobile_ios',
   manifest: false,
   scraper: 'fetch',
   probe: false
@@ -31,4 +33,4 @@ export const SCRAPERS = {
 } as const
 export type FaviconScraper = typeof SCRAPERS[keyof typeof SCRAPERS];
 
-// export type getFavicons = <T extends FaviconOptions = typeof DefaultFaviconOptions>(domain: string, options?: T) => Promise<T["probe"] extends true ? ProbedFavicon : Favicon>;
+export type Agent = keyof typeof agents;

@@ -1,7 +1,7 @@
 import { scrapeWithFetch } from "./scrapers";
 import { DefaultFaviconOptions, type Favicon, type FaviconOptions, type ProbedFavicon } from "./types";
 
-import { extractDomain, probeIcon } from "./utils";
+import { extractDomain, probeIcon, getAgent } from "./utils";
 
 // Dont probe
 export default async function getFavicons (domain: string): Promise<Favicon[]>;
@@ -12,13 +12,14 @@ export default async function getFavicons <T extends Partial<FaviconOptions> & {
 export default async function getFavicons <T extends Partial<FaviconOptions>>(domain: string, options?: T): Promise<ProbedFavicon[] | Favicon[]> {
   const { agent, manifest, scraper, probe } = { ...DefaultFaviconOptions, ...options };
   const url = extractDomain(domain);
+  const userAgent = getAgent(agent);
   
   let scrapeFn = scrapeWithFetch;
   if (scraper === 'fetch') {
     scrapeFn = scrapeWithFetch
   }
 
-  const favicons: Favicon[] = await scrapeFn(url, agent);
+  const favicons: Favicon[] = await scrapeFn(url, userAgent);
 
   if (probe == false) {
     return favicons
