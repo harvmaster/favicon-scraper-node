@@ -18,7 +18,7 @@ export type FaviconOptions = {
   agent: Agent
   manifest: boolean
   scraper: FaviconScraper
-  probe: boolean
+  probe: true | false
 }
 
 export const DefaultFaviconOptions: FaviconOptions = {
@@ -34,3 +34,4 @@ export const SCRAPERS = {
 export type FaviconScraper = typeof SCRAPERS[keyof typeof SCRAPERS];
 
 export type Agent = keyof typeof agents;
+export type UserAgent = typeof agents;
